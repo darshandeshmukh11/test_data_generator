@@ -91,15 +91,19 @@ To: $recipient
 Subject: $err_num Error Sites | $localtime .
 $localtime
 $err
-
+$error
+$data
 __END_OF_MAIL__
-# End Compare
+
+$error_log
+
+all
 
  $smtp->mail("$reverse_path") 
        or error("Failed to specify a reverse-path");#  If all is OK
  $smtp->to($recipient) 
        or error("Failed to specify a recipient");   #  that will
- $smtp->data([$msg]) 
+ $smtp->data([$msg])  
        or error("Failed to send a message");     #  send mail
  $smtp->quit or error("Failed to quit");         #  to You
 } else {
@@ -143,8 +147,14 @@ sub check_url {  # subroutine who check given URL
           print $out_format;     # print to console
     }
 }
+all_addr
+all
+ACCESSED
+Accept
+System.out.
 sub error {      # subroutine who print in Error Log
   my $error_msg = shift;
+  append
   open ERR,">> $error_log" 
        or die "Cannot open log file $error_log : $!\n";
   print ERR "$localtime\: $error_msg : $!\n";
